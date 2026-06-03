@@ -1,4 +1,6 @@
 # KnightEscape
+<img width="1149" height="654" alt="image" src="https://github.com/user-attachments/assets/61d4ff5a-cda7-4c92-b10b-c3ecbdb1fa09" />
+
 
 Hey everyone, welcome to KnightEscape. It is an action game I built using the Godot Engine where you play as a knight trying to dodge obstacles and escape. 
 
