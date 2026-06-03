@@ -1,28 +1,25 @@
 # KnightEscape
 
-Welcome to **KnightEscape**! Control your knight, dodge obstacles, and find your way out in this action-packed adventure game built with the Godot Engine[cite: 1].
+Hey everyone, welcome to KnightEscape. It is an action game I built using the Godot Engine where you play as a knight trying to dodge obstacles and escape. 
 
-## 🎮 Controls
+## Controls
 
-The controls are simple and easy to learn. Use your keyboard to navigate the knight[cite: 1]:
+The controls are super simple:
+* A to Move Left
+* D to Move Right
+* Spacebar to Jump
 
-| Action | Key |
-| :---: | :---: |
-| **Move Left** | A[cite: 1] |
-| **Move Right** | D[cite: 1] |
-| **Jump** | Spacebar[cite: 1] |
+## How to Download and Play
 
-## 🚀 How to Download and Play
+You do not need to download any of the code files to play the game. Just follow these quick steps to get the Windows version:
 
-You don't need to download the source code to play the game! Follow these simple steps to get the playable Windows version[cite: 1]:
+1. Look at the right side of this page and click on the Releases section.
+2. Click on the latest version like v1.0.0.
+3. Down at the bottom under Assets, click the zip file to download it.
+4. Once it downloads, right click the zip folder and click Extract All to unzip it.
+5. Open up the new folder and just double click KnightEscape.exe to start playing.
 
-1. Look at the right-hand side of this GitHub page and find the **Releases** section[cite: 1].
-2. Click on the latest release (for example, `v1.0.0`)[cite: 1].
-3. Under the **Assets** section at the bottom of the release page, click on the `.zip` file (e.g., `KnightEscape_Windows.zip`) to download it[cite: 1].
-4. Once downloaded, locate the file on your computer, right-click it, and select **Extract All...** to unzip it[cite: 1].
-5. Open the extracted folder and double-click the `KnightEscape.exe` file to launch the game and start playing[cite: 1]!
+## Credits
 
-## 🛠️ Built With
-
-* [Godot Engine](https://godotengine.org/) - The open-source game engine used to build the game[cite: 1].
-* Based on the Godot template by Bartosz Budnik.
+* Built with the Godot Engine.
+* Huge thanks to Bartosz Budnik for the awesome template.
