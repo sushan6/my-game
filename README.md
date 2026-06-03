@@ -30,4 +30,4 @@ I am still actively working on this project. Here is what is coming soon:
 * Built with the Godot Engine.
 * Huge thanks to Bartosz Budnik for the awesome template.
 
-* Thankyou for checking it out
+## Thankyou for checking it out
