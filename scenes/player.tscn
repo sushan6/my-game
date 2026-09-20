@@ -151,7 +151,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_f1ej7")
 }],
 "loop": 1,
-"name": &"hit",
+"name": &"dying",
 "speed": 20.0
 }, {
 "frames": [{
@@ -197,7 +197,7 @@ animations = [{
 "texture": ExtResource("3_tuyoq")
 }],
 "loop": 1,
-"name": &"jump",
+"name": &"jumping",
 "speed": 20.0
 }, {
 "frames": [{
@@ -238,9 +238,12 @@ animations = [{
 "texture": SubResource("AtlasTexture_hax0n")
 }],
 "loop": 1,
-"name": &"run",
+"name": &"running",
 "speed": 20.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fr56"]
+size = Vector2(21, 25.333334)
 
 [node name="player" type="CharacterBody2D" unique_id=1454447831]
 scale = Vector2(3, 3)
@@ -249,5 +252,9 @@ script = ExtResource("1_qlg0r")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=443142263]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_4fr56")
-animation = &"idle"
+animation = &"dying"
 autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=953546830]
+position = Vector2(0.5, 3.3333328)
+shape = SubResource("RectangleShape2D_4fr56")
