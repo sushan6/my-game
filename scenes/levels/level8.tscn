@@ -38,7 +38,7 @@ offset_bottom = 451.0
 theme_override_fonts/font = ExtResource("3_xthml")
 theme_override_font_sizes/font_size = 128
 text = "More levels
- Comming soon"
+ Coming soon"
 
 [node name="Button" type="Button" parent="Panel" unique_id=1693384949]
 layout_mode = 0
