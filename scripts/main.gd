@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var score_label: Label = $HUD/ScorePanel/ScoreLabel
+@onready var level_label: Label = $HUD/ScorePanel/HBoxContainer/LevelLabel
+@onready var score_label: Label = $HUD/ScorePanel/HBoxContainer/ScoreLabel
 @onready var fade: ColorRect = $HUD/Fade
 
 
@@ -9,6 +10,7 @@ var score : int = 0
 var current_level_root: Node = null
 
 func _ready() -> void:
+	
 	# setup the level 
 	fade.modulate.a = 1.0
 	current_level_root = get_node("level root")
@@ -39,6 +41,11 @@ func _load_level(level_number: int, first_load: bool, reset_score: bool) -> void
 	add_child(current_level_root)
 	current_level_root.name = "level root"
 	_setup_level(current_level_root)
+	
+	# level score 
+	level_label.text = "LEVEL: %s" % level_number
+	
+	
 	
 	# Fade in
 	await _fade(0.0)
@@ -89,6 +96,7 @@ func _on_player_died(body):
 func increase_score() -> void:
 	score += 1
 	score_label.text = "SCORE: %s" % score
+	
 		
 		
 		
@@ -100,3 +108,7 @@ func _fade(to_alpha: float) -> void:
 	var tween := create_tween()
 	tween.tween_property(fade, "modulate:a", to_alpha, 1.5)
 	await tween.finished
+
+
+func _on_texture_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/control.tscn")
