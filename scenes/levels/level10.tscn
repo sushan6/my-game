@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bd72xccw1bd1a"]
+
+[ext_resource type="Script" uid="uid://cy4guj322s" path="res://scripts/level_8.gd" id="1_qy8hv"]
+[ext_resource type="Texture2D" uid="uid://gbfyq5p22dci" path="res://images/Capture.PNG" id="2_wyh5q"]
+[ext_resource type="FontFile" uid="uid://bitwoot2653dk" path="res://assets/fonts/Square-Black.ttf" id="3_xthml"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_me8c3"]
+texture = ExtResource("2_wyh5q")
+modulate_color = Color(0.32139468, 0.32139468, 0.32139465, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_me8c3"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="more levels" type="Control" unique_id=2001966542]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qy8hv")
+
+[node name="Panel" type="Panel" parent="." unique_id=1617098251]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_me8c3")
+
+[node name="Label" type="Label" parent="Panel" unique_id=188855859]
+layout_mode = 0
+offset_left = 227.0
+offset_top = 192.0
+offset_right = 986.0
+offset_bottom = 451.0
+theme_override_fonts/font = ExtResource("3_xthml")
+theme_override_font_sizes/font_size = 128
+text = "More levels
+ Coming soon"
+
+[node name="Button" type="Button" parent="Panel" unique_id=1693384949]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 472.0
+offset_right = 757.0
+offset_bottom = 544.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xthml")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_me8c3")
+text = "Main Menu"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

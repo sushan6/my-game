@@ -71,7 +71,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Control_menu" type="Panel" parent="HUD" unique_id=1237664787]
-visible = false
 offset_right = 50.0
 offset_bottom = 50.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4fr56")
