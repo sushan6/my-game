@@ -111,4 +111,14 @@ func _fade(to_alpha: float) -> void:
 
 
 func _on_texture_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/control.tscn")
+	open_control_panel()
+	
+	
+
+@export var control_panel_scene: PackedScene
+
+func open_control_panel() -> void:
+	var panel = control_panel_scene.instantiate()
+	add_child(panel)
+	 
+	

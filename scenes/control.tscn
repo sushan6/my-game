@@ -18,6 +18,7 @@ bg_color = Color(1, 1, 1, 1)
 bg_color = Color(1, 1, 1, 1)
 
 [node name="Control" type="Control" unique_id=1054200154]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,21 +36,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_me8c3")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=615406198]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=615406198]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -134.5
-offset_top = -100.0
-offset_right = 165.0
-offset_bottom = 111.0
+offset_left = -149.75
+offset_top = -105.5
+offset_right = 149.75
+offset_bottom = 105.5
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
-[node name="Resume" type="Button" parent="Panel/VBoxContainer" unique_id=56517308]
+[node name="Resume" type="Button" parent="VBoxContainer" unique_id=56517308]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
@@ -58,7 +60,7 @@ theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_8n18e")
 text = "Resume"
 
-[node name="Restart" type="Button" parent="Panel/VBoxContainer" unique_id=118005201]
+[node name="Restart" type="Button" parent="VBoxContainer" unique_id=118005201]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
@@ -67,7 +69,7 @@ theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_tjwpk")
 text = "Restart"
 
-[node name="Main Menu" type="Button" parent="Panel/VBoxContainer" unique_id=860204550]
+[node name="Main Menu" type="Button" parent="VBoxContainer" unique_id=860204550]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_brbbq")
@@ -75,6 +77,6 @@ theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_lpubu")
 text = "Main Menu"
 
-[connection signal="pressed" from="Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
