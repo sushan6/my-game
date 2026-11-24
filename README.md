@@ -13,4 +13,11 @@ S to move left
 
 D to move right
 
+## acknowledgement
+
+Gadot for their game engine
+
+brackeysgames for the assects
+
+
 
