@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://c8hpul6disfcs"]
 
 [ext_resource type="Script" uid="uid://bqcnv21y7thi6" path="res://scripts/control.gd" id="1_brbbq"]
-[ext_resource type="Texture2D" uid="uid://gbfyq5p22dci" path="res://images/Capture.PNG" id="1_r67kn"]
+[ext_resource type="Shader" uid="uid://3ua0o3m88omd" path="res://scripts/control.gdshader" id="2_8n18e"]
 [ext_resource type="FontFile" uid="uid://bitwoot2653dk" path="res://assets/fonts/Square-Black.ttf" id="2_brbbq"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_me8c3"]
-texture = ExtResource("1_r67kn")
-modulate_color = Color(0.29308528, 0.41319823, 0.43992448, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4fr56"]
+shader = ExtResource("2_8n18e")
+shader_parameter/lod = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8n18e"]
 bg_color = Color(1, 1, 1, 1)
@@ -16,6 +16,67 @@ bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpubu"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_tjwpk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lpubu"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lt2xq"]
+_data = {
+&"RESET": SubResource("Animation_tjwpk"),
+&"blur": SubResource("Animation_lpubu")
+}
 
 [node name="Control" type="Control" unique_id=1054200154]
 process_mode = 3
@@ -27,31 +88,36 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_brbbq")
 
-[node name="Panel" type="Panel" parent="." unique_id=1328224139]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=226482064]
+material = SubResource("ShaderMaterial_4fr56")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_me8c3")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=615406198]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=331717440]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -149.75
-offset_top = -105.5
-offset_right = 149.75
-offset_bottom = 105.5
+offset_left = -266.0
+offset_top = -226.0
+offset_right = 266.0
+offset_bottom = 226.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=615406198]
+layout_mode = 2
 alignment = 1
 
-[node name="Resume" type="Button" parent="VBoxContainer" unique_id=56517308]
+[node name="Resume" type="Button" parent="PanelContainer/VBoxContainer" unique_id=56517308]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
@@ -60,7 +126,7 @@ theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_8n18e")
 text = "Resume"
 
-[node name="Restart" type="Button" parent="VBoxContainer" unique_id=118005201]
+[node name="Restart" type="Button" parent="PanelContainer/VBoxContainer" unique_id=118005201]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
@@ -69,7 +135,7 @@ theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_tjwpk")
 text = "Restart"
 
-[node name="Main Menu" type="Button" parent="VBoxContainer" unique_id=860204550]
+[node name="Main Menu" type="Button" parent="PanelContainer/VBoxContainer" unique_id=860204550]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_brbbq")
@@ -77,6 +143,9 @@ theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_lpubu")
 text = "Main Menu"
 
-[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1139252810]
+libraries/ = SubResource("AnimationLibrary_lt2xq")
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
